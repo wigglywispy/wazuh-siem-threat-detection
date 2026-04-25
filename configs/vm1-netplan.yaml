@@ -1,0 +1,14 @@
+# VM1 - Wazuh Server Network Configuration
+# Location: /etc/netplan/00-installer-config.yaml
+# Internal Network IP: 192.168.56.10
+
+network:
+  version: 2
+  ethernets:
+    enp0s3:
+      dhcp4: true        # NAT adapter - internet access
+    enp0s8:
+      addresses:
+        - 192.168.56.10/24    # Internal network - static IP
+      nameservers:
+        addresses: [8.8.8.8, 8.8.4.4]
